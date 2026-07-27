@@ -54,6 +54,8 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--color-border);
+  overflow: hidden; /* Khóa chống tràn (prevent horizontal scroll) do hiệu ứng Glow */
+  position: relative;
 }
 
 .hero-container {
@@ -61,6 +63,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  min-width: 0; /* Cho phép container co lại dưới mức nội dung tĩnh */
+}
+
+.hero-container > * {
+  min-width: 0; /* Bắt buộc các phần tử con không được phình to quá giới hạn */
 }
 
 .badge {
@@ -91,17 +98,18 @@
   line-height: 1.7;
 }
 
-.hero-image {
+.hero-visual {
   flex: 1;
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 /* Ánh sáng mờ phát ra từ phía sau cửa sổ code */
-.hero-image::before {
+.hero-visual::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -112,6 +120,13 @@
   background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(255, 255, 255, 0) 65%);
   z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  .hero-visual::before {
+    width: 100vw;
+    height: 100vw;
+  }
 }
 
 .hero-actions {
@@ -131,6 +146,7 @@
   width: 100%;
   max-width: 550px;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .window-header {
@@ -205,6 +221,10 @@ code {
   
   .hero-title {
     font-size: 2.5rem; /* Thu nhỏ tiêu đề trên mobile */
+  }
+
+  .hero-subtitle {
+    margin: 0 auto 2.5rem; /* Căn giữa đoạn mô tả trên mobile */
   }
 
   .hero-actions {
