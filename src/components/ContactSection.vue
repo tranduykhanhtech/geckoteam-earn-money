@@ -11,7 +11,7 @@
         </p>
       </div>
       
-      <div class="contact-cards">
+      <div class="contact-grid">
         <div class="contact-card">
           <div class="icon-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -61,12 +61,34 @@
   color: var(--color-text-soft);
 }
 
-.contact-cards {
+.contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem; /* Khoảng cách 20px giữa các thẻ */
+  }
+
+  .contact-card {
+    padding: 1.5rem 1rem !important; /* Giảm padding bên trong thẻ */
+  }
+
+  .icon-wrapper {
+    width: 3rem !important;
+    height: 3rem !important;
+    margin: 0 auto 1rem !important;
+  }
+
+  .icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .contact-card {

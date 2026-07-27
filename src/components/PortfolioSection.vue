@@ -91,6 +91,13 @@ const projects = [
   gap: 2.5rem;
 }
 
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 .project-card {
   display: flex;
   flex-direction: column;

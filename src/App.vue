@@ -9,6 +9,11 @@ import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
 
 const showScrollTop = ref(false)
+const isMobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
 
 const handleScroll = () => {
   showScrollTop.value = window.scrollY > 400
@@ -23,9 +28,22 @@ const handleGlobalClick = (e: Event) => {
   const anchor = target.closest('a[href^="#"]')
   
   if (anchor) {
+    if (isMobileMenuOpen.value) {
+      isMobileMenuOpen.value = false
+    }
+
     const href = anchor.getAttribute('href')
-    if (href && href !== '#') {
+    if (href) {
       e.preventDefault()
+      
+      if (href === '#') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        return
+      }
+
       const el = document.querySelector(href)
       if (el) {
         const headerOffset = 70
@@ -56,15 +74,32 @@ onUnmounted(() => {
 <template>
   <header class="header">
     <div class="container header-container">
-      <div class="logo">
+      <a href="#" class="logo" aria-label="Go to top">
         <span class="logo-text">Gecko<span class="text-gradient">Team</span></span>
-      </div>
-      <nav class="nav">
+      </a>
+      <nav class="nav desktop-nav">
         <a href="#services">Dịch vụ</a>
         <a href="#process">Quy trình</a>
         <a href="#portfolio">Dự án</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary btn-sm">Liên hệ</a>
+      </nav>
+
+      <!-- Hamburger Menu Button -->
+      <button class="mobile-menu-btn" @click="toggleMobileMenu" aria-label="Mở menu">
+        <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg v-else xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-nav-overlay" :class="{ 'is-open': isMobileMenuOpen }">
+      <nav class="mobile-nav">
+        <a href="#services">Dịch vụ</a>
+        <a href="#process">Quy trình</a>
+        <a href="#portfolio">Dự án</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">Liên hệ ngay</a>
       </nav>
     </div>
   </header>
@@ -126,26 +161,27 @@ onUnmounted(() => {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  text-decoration: none;
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.05em;
   color: var(--color-text);
 }
 
-.nav {
+.desktop-nav {
   display: flex;
   align-items: center;
   gap: 2.5rem;
 }
 
-.nav a:not(.btn) {
+.desktop-nav a:not(.btn) {
   color: var(--color-text-soft);
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-.nav a:not(.btn):hover {
+.desktop-nav a:not(.btn):hover {
   color: var(--color-text);
 }
 
@@ -187,8 +223,61 @@ main {
 }
 
 @media (max-width: 768px) {
-  .nav {
+  .desktop-nav {
     display: none;
+  }
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-nav-overlay {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 999;
+}
+
+.mobile-nav-overlay.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-nav a:not(.btn) {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
   }
 }
 

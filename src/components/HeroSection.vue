@@ -165,10 +165,16 @@
   color: #f8f8f2;
   line-height: 1.6;
   overflow-x: auto;
+  text-align: left; /* Chống lại lệnh text-align: center từ .hero-container trên mobile */
 }
 
 pre {
   margin: 0;
+}
+
+code {
+  white-space: pre !important;
+  display: block;
 }
 
 /* Line Numbers */
@@ -192,20 +198,26 @@ pre {
 
 @media (max-width: 992px) {
   .hero-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Sửa lỗi hiển thị 2 cột trên mobile */
     text-align: center;
+    gap: 3rem;
   }
   
-  .hero-subtitle {
-    margin: 0 auto 2.5rem;
+  .hero-title {
+    font-size: 2.5rem; /* Thu nhỏ tiêu đề trên mobile */
   }
 
   .hero-actions {
-    justify-content: center;
+    flex-direction: column; /* Xếp dọc các nút bấm để dễ bấm trên điện thoại */
+    width: 100%;
   }
-  
-  .badge {
-    margin: 0 auto 2rem;
+
+  .hero-actions .btn {
+    width: 100%; /* Kéo dãn nút bấm */
+  }
+
+  .code-window {
+    font-size: 0.8rem;
   }
 }
 </style>
