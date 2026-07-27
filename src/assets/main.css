@@ -1,0 +1,110 @@
+:root {
+  /* Premium Light Mode Palette */
+  --color-background: #ffffff;
+  --color-background-soft: #fcfcfc;
+  --color-background-mute: #f4f4f5;
+  
+  --color-text: #09090b; /* Zinc 950 */
+  --color-text-soft: #52525b; /* Zinc 600 */
+  --color-text-muted: #a1a1aa; /* Zinc 400 */
+  
+  --color-border: #e4e4e7; /* Zinc 200 */
+  
+  --color-primary: #10b981; /* Emerald 500 */
+  --color-primary-dark: #047857; /* Emerald 700 */
+  --color-primary-light: #34d399; /* Emerald 400 */
+  --color-primary-bg: #ecfdf5; /* Emerald 50 */
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --transition-speed: 0.2s;
+  --radius: 8px; /* Sharper, more professional border radius */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em; /* Tighter letter spacing for a premium look */
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+.container {
+  max-width: 1100px; /* Slightly narrower for better reading measure */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid transparent;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary {
+  background-color: var(--color-text); /* Black button for high contrast */
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: #27272a; /* Zinc 800 */
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-background-mute);
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
