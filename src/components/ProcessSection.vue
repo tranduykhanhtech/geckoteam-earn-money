@@ -23,12 +23,12 @@ const steps = [
   <section id="process" class="section process">
     <div class="container">
       <div class="section-header text-center">
-        <h2 class="section-title">Quy trình làm việc</h2>
-        <p class="section-subtitle">Minh bạch, tinh gọn và hiệu quả ở từng giai đoạn.</p>
+        <h2 class="section-title fade-up" v-animate>Quy trình làm việc</h2>
+        <p class="section-subtitle fade-up delay-100" v-animate>Minh bạch, tinh gọn và hiệu quả ở từng giai đoạn.</p>
       </div>
 
       <div class="process-timeline">
-        <div v-for="(step, index) in steps" :key="index" class="timeline-item">
+        <div v-for="(step, index) in steps" :key="index" class="timeline-item fade-up" v-animate :style="`transition-delay: ${index * 150}ms`">
           
           <!-- Phần đỉnh: Hình tròn số thứ tự và Mũi tên nối -->
           <div class="timeline-header">

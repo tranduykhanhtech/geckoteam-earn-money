@@ -20,11 +20,11 @@ const reasons = [
     <div class="container">
       <div class="why-us-grid">
         <div class="why-us-intro">
-          <h2 class="section-title">Tại sao chọn <br/><span class="text-gradient">Gecko Team?</span></h2>
-          <p class="section-subtitle">
+          <h2 class="section-title fade-up" v-animate>Tại sao chọn <br/><span class="text-gradient">Gecko Team?</span></h2>
+          <p class="section-subtitle fade-up delay-100" v-animate>
             Khác biệt của chúng tôi không chỉ nằm ở những dòng code, mà ở tư duy đồng hành cùng sự phát triển kinh doanh của bạn.
           </p>
-          <div class="metrics">
+          <div class="metrics fade-up delay-200" v-animate>
             <div class="metric">
               <span class="metric-value">100%</span>
               <span class="metric-label">Minh bạch chi phí</span>
@@ -38,7 +38,7 @@ const reasons = [
         </div>
         
         <div class="reasons-list">
-          <div v-for="(reason, index) in reasons" :key="index" class="reason-item">
+          <div v-for="(reason, index) in reasons" :key="index" class="reason-item slide-in-right" v-animate :style="`transition-delay: ${index * 150 + 200}ms`">
             <div class="reason-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>

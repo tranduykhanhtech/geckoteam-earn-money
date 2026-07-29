@@ -3,7 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import HeroSection from './components/HeroSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
 import ProcessSection from './components/ProcessSection.vue'
-import PortfolioSection from './components/PortfolioSection.vue'
+import PricingSection from './components/PricingSection.vue'
+import TestimonialSection from './components/TestimonialSection.vue'
 import WhyUsSection from './components/WhyUsSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
@@ -80,7 +81,7 @@ onUnmounted(() => {
       <nav class="nav desktop-nav">
         <a href="#services">Dịch vụ</a>
         <a href="#process">Quy trình</a>
-        <a href="#portfolio">Dự án</a>
+        <a href="#pricing">Bảng giá</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary btn-sm">Liên hệ</a>
       </nav>
@@ -97,7 +98,7 @@ onUnmounted(() => {
       <nav class="mobile-nav">
         <a href="#services">Dịch vụ</a>
         <a href="#process">Quy trình</a>
-        <a href="#portfolio">Dự án</a>
+        <a href="#pricing">Bảng giá</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary">Liên hệ ngay</a>
       </nav>
@@ -108,7 +109,8 @@ onUnmounted(() => {
     <HeroSection />
     <ServicesSection />
     <ProcessSection />
-    <PortfolioSection />
+    <PricingSection />
+    <TestimonialSection />
     <WhyUsSection />
     <FaqSection />
     <ContactSection />
@@ -195,9 +197,9 @@ main {
 }
 
 .footer {
-  background-color: var(--color-background);
+  background-color: #09090b; /* Zinc 950 */
   padding: 4rem 0 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #27272a; /* Zinc 800 */
 }
 
 .footer-container {
@@ -208,16 +210,20 @@ main {
   text-align: center;
 }
 
+.footer-info .logo {
+  color: white;
+}
+
 .footer-info p {
-  color: var(--color-text-soft);
+  color: #a1a1aa; /* Zinc 400 */
   margin-top: 0.5rem;
   font-size: 0.95rem;
 }
 
 .footer-copyright {
-  color: var(--color-text-muted);
+  color: #71717a; /* Zinc 500 */
   font-size: 0.875rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #27272a; /* Zinc 800 */
   padding-top: 2rem;
   width: 100%;
 }

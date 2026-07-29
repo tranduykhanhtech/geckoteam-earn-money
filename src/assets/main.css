@@ -136,3 +136,51 @@ a:hover {
     margin-top: 0.5rem !important;
   }
 }
+
+/* ==================================================
+   SCROLL ANIMATIONS (Intersection Observer)
+   ================================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Khi phần tử xuất hiện trên màn hình, class .is-visible sẽ được gắn vào */
+.is-visible.fade-up,
+.is-visible.slide-in-left,
+.is-visible.slide-in-right {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.is-visible.fade-in {
+  opacity: 1;
+}
+
+/* Delay Utils cho danh sách/lưới */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }

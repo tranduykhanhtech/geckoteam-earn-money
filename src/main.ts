@@ -3,11 +3,13 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
-import router from './router'
+import { animateDirective } from './directives/animate'
 
 const app = createApp(App)
 
 app.use(createPinia())
-app.use(router)
+
+// Đăng ký Directive Animation
+app.directive('animate', animateDirective)
 
 app.mount('#app')

@@ -36,16 +36,18 @@ const toggleFaq = (index: number) => {
     <div class="container">
       <div class="faq-layout">
         <div class="faq-header">
-          <h2 class="section-title">Câu hỏi thường gặp</h2>
-          <p class="section-subtitle">Giải đáp các thắc mắc phổ biến trước khi bạn quyết định hợp tác cùng Gecko Team.</p>
-          <a href="#contact" class="btn btn-primary mt-4">Liên hệ tư vấn thêm</a>
+          <h2 class="section-title fade-up" v-animate>Câu hỏi thường gặp</h2>
+          <p class="section-subtitle fade-up delay-100" v-animate>Giải đáp các thắc mắc phổ biến trước khi bạn quyết định hợp tác cùng Gecko Team.</p>
+          <a href="#contact" class="btn btn-primary mt-4 fade-up delay-200" v-animate>Liên hệ tư vấn thêm</a>
         </div>
         
         <div class="faq-list">
           <div 
             v-for="(faq, index) in faqs" 
             :key="index" 
-            class="faq-item"
+            class="faq-item fade-up"
+            v-animate
+            :style="`transition-delay: ${index * 100}ms`"
             :class="{ 'is-open': faq.isOpen }"
           >
             <button class="faq-question" @click="toggleFaq(index)">

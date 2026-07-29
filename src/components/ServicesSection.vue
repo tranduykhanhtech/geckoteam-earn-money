@@ -25,12 +25,12 @@ const services = [
   <section id="services" class="section services">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Chuyên môn hóa</h2>
-        <p class="section-subtitle">Chúng tôi tập trung vào những gì mình làm giỏi nhất để mang lại giá trị cao nhất cho khách hàng.</p>
+        <h2 class="section-title fade-up" v-animate>Chuyên môn hóa</h2>
+        <p class="section-subtitle fade-up delay-100" v-animate>Chúng tôi tập trung vào những gì mình làm giỏi nhất để mang lại giá trị cao nhất cho khách hàng.</p>
       </div>
 
       <div class="services-grid">
-        <div v-for="service in services" :key="service.id" class="service-card">
+        <div v-for="(service, index) in services" :key="service.id" class="service-card fade-up" v-animate :style="`transition-delay: ${index * 150}ms`">
           <div class="service-icon" v-html="service.icon"></div>
           <h3 class="service-title">{{ service.title }}</h3>
           <p class="service-desc">{{ service.description }}</p>
@@ -42,7 +42,8 @@ const services = [
 
 <style scoped>
 .services {
-  background-color: var(--color-background);
+  background-color: #09090b; /* Nền đen Zinc 950 */
+  color: white;
 }
 
 .section-header {
@@ -52,12 +53,12 @@ const services = [
 
 .section-title {
   font-size: 2.75rem;
-  color: var(--color-text);
+  color: white;
 }
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: var(--color-text-soft);
+  color: #a1a1aa; /* Zinc 400 */
   margin-top: 1rem;
 }
 
@@ -75,35 +76,37 @@ const services = [
 }
 
 .service-card {
-  background: var(--color-background-soft);
-  border: 1px solid var(--color-border);
+  background: #18181b; /* Zinc 900 */
+  border: 1px solid #27272a; /* Zinc 800 */
   border-radius: var(--radius);
   padding: 2.5rem;
-  transition: border-color var(--transition-speed) ease;
+  transition: all var(--transition-speed) ease;
 }
 
 .service-card:hover {
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
 }
 
 .service-icon {
   margin-bottom: 1.5rem;
   display: inline-flex;
   padding: 0.75rem;
-  background: var(--color-background);
+  background: #27272a;
   border-radius: 6px;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  border: 1px solid #3f3f46;
   box-shadow: var(--shadow-sm);
 }
 
 .service-title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .service-desc {
-  color: var(--color-text-soft);
+  color: #a1a1aa;
   line-height: 1.7;
   font-size: 0.95rem;
 }

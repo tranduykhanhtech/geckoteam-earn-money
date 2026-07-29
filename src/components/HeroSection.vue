@@ -5,21 +5,21 @@
   <section class="hero section">
     <div class="container hero-container">
       <div class="hero-content">
-        <div class="badge">Thiết kế & Lập trình chuyên nghiệp</div>
-        <h1 class="hero-title">
+        <div class="badge fade-up" v-animate>Thiết kế & Lập trình chuyên nghiệp</div>
+        <h1 class="hero-title fade-up delay-100" v-animate>
           Giải pháp công nghệ <br/>
           <span class="text-gradient">tối ưu cho Startup</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle fade-up delay-200" v-animate>
           Chúng tôi giúp các doanh nghiệp mới biến ý tưởng thành sản phẩm thực tế với kiến trúc vững chắc, thiết kế sắc nét và chi phí hợp lý nhất.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions fade-up delay-300" v-animate>
           <a href="#contact" class="btn btn-primary">Bắt đầu dự án</a>
           <a href="#services" class="btn btn-outline">Tìm hiểu dịch vụ</a>
         </div>
       </div>
       
-      <div class="hero-visual">
+      <div class="hero-visual slide-in-right delay-400" v-animate>
         <div class="code-window">
           <div class="window-header">
             <div class="dots">
