@@ -55,13 +55,20 @@ const handleGlobalClick = (e: Event) => {
           top: offsetPosition,
           behavior: 'smooth'
         })
-        history.pushState(null, '', href)
       }
     }
   }
 }
 
 onMounted(() => {
+  // Ngăn trình duyệt tự động khôi phục vị trí cuộn cũ khi F5
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual'
+  }
+  
+  // Buộc cuộn lên đầu trang mỗi khi tải lại
+  window.scrollTo(0, 0)
+
   window.addEventListener('scroll', handleScroll)
   document.addEventListener('click', handleGlobalClick)
 })
