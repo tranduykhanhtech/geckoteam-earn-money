@@ -3,8 +3,8 @@ const pricingPlans = [
   {
     id: 1,
     name: 'Khởi động MVP',
-    price: 'Từ 800k',
-    description: 'Landing Page tốc độ cao giúp Startup kiểm chứng thị trường nhanh chóng.',
+    price: 'Siêu Tiết Kiệm',
+    description: 'Landing Page tốc độ cao giúp Startup kiểm chứng thị trường với ngân sách cực thấp.',
     features: [
       'Giao diện chuẩn SEO',
       'Chuẩn Responsive (Mobile)',
@@ -17,8 +17,8 @@ const pricingPlans = [
   {
     id: 2,
     name: 'Cơ bản (Basic)',
-    price: 'Từ 1tr5',
-    description: 'Website doanh nghiệp đầy đủ tính năng thiết yếu và công cụ quản trị.',
+    price: 'Ngân Sách Nhỏ',
+    description: 'Website doanh nghiệp đầy đủ tính năng thiết yếu, chi phí cực kỳ hợp lý.',
     features: [
       'Giao diện đa trang (Multi-page)',
       'Hệ thống quản trị (CMS) dễ dùng',
@@ -31,8 +31,8 @@ const pricingPlans = [
   {
     id: 3,
     name: 'Mở rộng (Growth)',
-    price: 'Từ 3 Triệu',
-    description: 'Hệ thống toàn diện với kiến trúc có thể mở rộng (Scalable).',
+    price: 'Tối Ưu Hóa',
+    description: 'Hệ thống toàn diện với kiến trúc có thể mở rộng nhưng không làm thủng ví của bạn.',
     features: [
       'Thiết kế UI/UX độc quyền (Figma)',
       'Tích hợp Thanh toán, API bên thứ 3',
@@ -40,13 +40,13 @@ const pricingPlans = [
       'Bảo hành & Hỗ trợ trọn đời'
     ],
     buttonText: 'Nhận tư vấn kỹ thuật',
-    isPopular: true
+    isPopular: false
   },
   {
     id: 4,
     name: 'Đội ngũ riêng',
-    price: 'Thỏa thuận',
-    description: 'Thuê đội ngũ kỹ sư đồng hành phát triển sản phẩm dài hạn.',
+    price: 'Linh Động',
+    description: 'Thuê đội ngũ kỹ sư đồng hành phát triển sản phẩm dài hạn, chi phí thỏa thuận.',
     features: [
       'Làm việc như In-house team',
       'Cam kết tiến độ hàng tuần',
@@ -63,9 +63,9 @@ const pricingPlans = [
   <section id="pricing" class="section pricing">
     <div class="container">
       <div class="section-header text-center">
-        <h2 class="section-title fade-up" v-animate>Bảng giá minh bạch</h2>
+        <h2 class="section-title fade-up" v-animate>Giải pháp tối ưu chi phí</h2>
         <p class="section-subtitle fade-up delay-100" v-animate>
-          Không chi phí ẩn. Lựa chọn gói dịch vụ tối ưu nhất cho giai đoạn phát triển của Startup.
+          Thiết kế dành riêng cho các Startup. Chúng tôi mang đến chất lượng cao cấp nhất với mức đầu tư dễ chịu nhất.
         </p>
       </div>
 
@@ -113,6 +113,7 @@ const pricingPlans = [
 
 .section-header {
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 .section-title {
@@ -184,18 +185,19 @@ const pricingPlans = [
 
 .popular-badge {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--color-primary);
   color: white;
-  padding: 0.25rem 1rem;
+  padding: 0.35rem 1rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+  white-space: nowrap;
 }
 
 .card-header {
@@ -212,7 +214,7 @@ const pricingPlans = [
 }
 
 .plan-price {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--color-text);
   letter-spacing: -0.02em;

@@ -3,9 +3,11 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import HeroSection from './components/HeroSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
 import ProcessSection from './components/ProcessSection.vue'
+import TechStackSection from './components/TechStackSection.vue'
 import PricingSection from './components/PricingSection.vue'
 import TestimonialSection from './components/TestimonialSection.vue'
 import WhyUsSection from './components/WhyUsSection.vue'
+import TeamSection from './components/TeamSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
 
@@ -88,7 +90,10 @@ onUnmounted(() => {
       <nav class="nav desktop-nav">
         <a href="#services">Dịch vụ</a>
         <a href="#process">Quy trình</a>
-        <a href="#pricing">Bảng giá</a>
+        <a href="#tech">Công nghệ</a>
+        <a href="#pricing">Giải pháp</a>
+        <a href="#why-us">Ưu điểm</a>
+        <a href="#team">Đội ngũ</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary btn-sm">Liên hệ</a>
       </nav>
@@ -105,7 +110,10 @@ onUnmounted(() => {
       <nav class="mobile-nav">
         <a href="#services">Dịch vụ</a>
         <a href="#process">Quy trình</a>
-        <a href="#pricing">Bảng giá</a>
+        <a href="#tech">Công nghệ</a>
+        <a href="#pricing">Giải pháp</a>
+        <a href="#why-us">Ưu điểm</a>
+        <a href="#team">Đội ngũ</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary">Liên hệ ngay</a>
       </nav>
@@ -116,9 +124,11 @@ onUnmounted(() => {
     <HeroSection />
     <ServicesSection />
     <ProcessSection />
+    <TechStackSection />
     <PricingSection />
     <TestimonialSection />
     <WhyUsSection />
+    <TeamSection />
     <FaqSection />
     <ContactSection />
   </main>
@@ -181,13 +191,13 @@ onUnmounted(() => {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.25rem;
 }
 
 .desktop-nav a:not(.btn) {
   color: var(--color-text-soft);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .desktop-nav a:not(.btn):hover {
@@ -235,7 +245,7 @@ main {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .desktop-nav {
     display: none;
   }
@@ -288,7 +298,7 @@ main {
   color: var(--color-text);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .mobile-menu-btn {
     display: block;
   }

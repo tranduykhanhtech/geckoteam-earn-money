@@ -48,7 +48,6 @@ const toggleFaq = (index: number) => {
             class="faq-item fade-up"
             v-animate
             :style="`transition-delay: ${index * 100}ms`"
-            :class="{ 'is-open': faq.isOpen }"
           >
             <button class="faq-question" @click="toggleFaq(index)">
               <span>{{ faq.question }}</span>
