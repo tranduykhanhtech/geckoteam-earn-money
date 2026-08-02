@@ -56,8 +56,10 @@ const toggleFaq = (index: number) => {
                 <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
               </span>
             </button>
-            <div class="faq-answer" v-show="faq.isOpen">
-              <p>{{ faq.answer }}</p>
+            <div class="faq-answer-wrapper" :class="{ 'is-open': faq.isOpen }">
+              <div class="faq-answer">
+                <p>{{ faq.answer }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -128,11 +130,31 @@ const toggleFaq = (index: number) => {
   margin-left: 1rem;
 }
 
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-answer-wrapper.is-open {
+  grid-template-rows: 1fr;
+}
+
 .faq-answer {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 0.3s ease;
+}
+
+.faq-answer-wrapper.is-open .faq-answer {
   padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
   color: var(--color-text-soft);
   font-size: 0.95rem;
   line-height: 1.7;
+  margin: 0;
 }
 
 @media (max-width: 992px) {
